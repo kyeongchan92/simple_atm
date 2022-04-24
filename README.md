@@ -8,34 +8,34 @@ bearrobotics coding challenge
 
 ### Process
 
-Insert Card 
+1. Insert Card 
 
-=> PIN number 
+=> 2. PIN number 
 
-=> Select Account 
+=> 3. Select Account 
 
-=> See Balance/Deposit/Withdraw
+=> 4. See Balance or Deposit or Withdraw
 
 ### 0. Define Bank, Controller
 ~~~
 # Define Bank
-kbbank = KB_Bank()
+>>> kbbank = KB_Bank()
 
 # new customers
-kbbank.enroll_new_customer(name='daniel_001', pin=1535, account=123456789, init_balance=31)
-kbbank.enroll_new_customer(name='charles_843', pin=8432, account=419238122, init_balance=444)
-kbbank.enroll_new_customer(name='jason_888', pin=3378, account=789456123, init_balance=6)
-kbbank.add_new_account(name='charles_843', pin=8432, new_account=190228382, init_balance=11458)
+>>> kbbank.enroll_new_customer(name='daniel_001', pin=1535, account=123456789, init_balance=31)
+>>> kbbank.enroll_new_customer(name='charles_843', pin=8432, account=419238122, init_balance=444)
+>>> kbbank.enroll_new_customer(name='jason_888', pin=3378, account=789456123, init_balance=6)
+>>> kbbank.add_new_account(name='charles_843', pin=8432, new_account=190228382, init_balance=11458)
 
 # Enroll bank into Controller
-atm = Controller(
-    [
-     ('kb_bank',  kbbank)
-    ]
-    )
+>>> atm = Controller(
+                    [
+                     ('kb_bank',  kbbank)
+                    ]
+                    )
     
 # check bank's customer information
-kbbank.data
+>>> kbbank.data
 ~~~
 ~~~
 [output]
@@ -45,7 +45,7 @@ kbbank.data
 ~~~
 ### 1. Insert card
 ~~~
-atm('kb_bank', 'charles_843')
+>>> atm('kb_bank', 'charles_843')
 ~~~
 ~~~
 [output]
@@ -53,7 +53,7 @@ charles_843, enter your pin :
 ~~~
 ### 2. Check pin number
 ~~~
-charles_843, enter your pin : 8432
+>>> charles_843, enter your pin : 8432
 ~~~
 ~~~
 [output]
@@ -67,7 +67,7 @@ Select account :
 ~~~
 ### 3. Select account
 ~~~
-Select account : 419238122
+>>> Select account : 419238122
 ~~~
 ~~~
 [output]
@@ -76,7 +76,7 @@ What task do you want? see_balance/deposit/withdraw :
 ### 4. Select task
 #### 4-1. see_balance
 ~~~
-What task do you want? see_balance/deposit/withdraw : see_balance
+>>> What task do you want? see_balance/deposit/withdraw : see_balance
 ~~~
 ~~~
 [output]
@@ -85,14 +85,14 @@ Balance : 11458
 
 #### 4-2. deposit
 ~~~
-What task do you want? see_balance/deposit/withdraw : deposit
+>>> What task do you want? see_balance/deposit/withdraw : deposit
 ~~~
 ~~~
 [output]
 Balance : 11458
 ~~~
 ~~~
-how much do you want to deposit : 30
+>>> how much do you want to deposit : 30
 ~~~
 ~~~
 [output]
@@ -101,14 +101,14 @@ Balance : 474
 
 #### 4-3. withdraw
 ~~~
-What task do you want? see_balance/deposit/withdraw : withdraw
+>>> What task do you want? see_balance/deposit/withdraw : withdraw
 ~~~
 ~~~
 [output]
 Balance : 11458
 ~~~
 ~~~
-how much do you want to withdraw : 100
+>>> how much do you want to withdraw : 100
 ~~~
 ~~~
 [output]
