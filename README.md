@@ -4,19 +4,37 @@ bearrobotics coding challenge
 ![image](https://user-images.githubusercontent.com/25517592/164886558-9c8e595e-6222-4ac3-9cdf-2bbbaff44051.png)
 
 
-### 0. Define Bank
+
+
+### Process
+
+Insert Card 
+
+=> PIN number 
+
+=> Select Account 
+
+=> See Balance/Deposit/Withdraw
+
+### 0. Define Bank, Controller
 ~~~
+# Define Bank
 kbbank = KB_Bank()
-~~~
-### 0. Enroll new customers
-~~~
+
+# new customers
 kbbank.enroll_new_customer(name='daniel_001', pin=1535, account=123456789, init_balance=31)
 kbbank.enroll_new_customer(name='charles_843', pin=8432, account=419238122, init_balance=444)
 kbbank.enroll_new_customer(name='jason_888', pin=3378, account=789456123, init_balance=6)
-kbbank.add_new_account(name='charles_843', pin=8432, account=190228382, init_balance=11458)
-~~~
-### 0. Check bank's customer information
-~~~
+kbbank.add_new_account(name='charles_843', pin=8432, new_account=190228382, init_balance=11458)
+
+# Enroll bank into Controller
+atm = Controller(
+    [
+     ('kb_bank',  kbbank)
+    ]
+    )
+    
+# check bank's customer information
 kbbank.data
 ~~~
 ~~~
