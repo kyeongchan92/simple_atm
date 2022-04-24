@@ -2,10 +2,10 @@ class KB_Bank():
     def __init__(self):
         
         self.pin = {
-                          # name : enrolled pin number
-                          'daniel_001' : 1535,
-                          'charles_843' : 8432
-                          }
+                    # name : enrolled pin number
+                    'daniel_001' : 1535,
+                    'charles_843' : 8432
+                    }
         self.data = {
                     # {pin : {account : balance}}
                     1535 : {123456789 : 31},
@@ -23,7 +23,22 @@ class KB_Bank():
             return True
         else:
             return False
-
+        
+    def enroll_new_customer(self, name, pin, account, init_balance):
+        if name in self.pin:
+            print(f'name {name} is already enrolled customer.')
+        else:
+            self.pin[name] = pin
+            self.data[pin] = {account : init_balance}
+            print(f'Enrollment complete.')
+            print(f'name : {name}, account : {account}, initial balance : {init_balance}')
+    
+    def add_new_account(self, name, pin, new_account, init_balance):
+        self.data[pin][new_account] = init_balance
+        print(f'Adding new account complete.')
+        print(f'name : {name}, account : {new_account}, initial balance : {init_balance}')
+        
+    
         
 
 class Controller:
@@ -96,23 +111,6 @@ class Controller:
         else:
             prinf(f'Error : task error')
             
-            
-            
-
-kbbank = KB_Bank()
-
-
-# Enroll bank into Controller
-atm = Controller(
-    [
-     ('kb_bank',  kbbank)
-    ]
-    )
-
-
-# insert card
-# atm('kb_bank', 'daniel_001')
-atm('kb_bank', 'charles_843')
 
 
 
