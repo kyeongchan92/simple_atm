@@ -3,14 +3,11 @@ class KB_Bank():
         
         self.pin = {
                     # name : enrolled pin number
-                    'daniel_001' : 1535,
-                    'charles_843' : 8432
+
                     }
         self.data = {
                     # {pin : {account : balance}}
-                    1535 : {123456789 : 31},
-                    8432 : {419238122 : 444,
-                            190228382 : 11458}
+
                     }
         
     def check_pin(self, name, input_pin):
@@ -111,13 +108,6 @@ class Controller:
         else:
             prinf(f'Error : task error')
             
-
-
-
-
-
-
-
 
 
 
